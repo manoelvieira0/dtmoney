@@ -10,23 +10,21 @@ export function App() {
   const [isNewTransactionsModalOpen, setIsNewTransactionsModalOpen] = useState(false);
 
   function handleOpenNewTransactionsModal() {
-      setIsNewTransactionsModalOpen(true);
+    setIsNewTransactionsModalOpen(true);
 
   }
 
   function handleCloseNewTransactionsModal() {
-      setIsNewTransactionsModalOpen(false);
+    setIsNewTransactionsModalOpen(false);
   }
 
   return (
     <>
-      <Header onOpenNewTransactionsModal={handleOpenNewTransactionsModal}/>
-      <Dashboard />
-      <Modal
-        isOpen={isNewTransactionsModalOpen}
-        onRequestClose={handleCloseNewTransactionsModal}>
+      <Header onOpenNewTransactionModal={handleOpenNewTransactionsModal} />
+      <Modal isOpen={isNewTransactionsModalOpen} onRequestClose={handleCloseNewTransactionsModal}>
         <h2>Cadastrar Transação</h2>
       </Modal>
+      <Dashboard />
       <GlobalStyle />
     </>
   );
