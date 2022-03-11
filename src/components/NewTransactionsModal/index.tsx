@@ -20,8 +20,8 @@ export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactions
 
     function handleCreateNewTransactions(event: FormEvent) {
         event.preventDefault();
-        const data ={
-            title, value, category, type
+        const data = {
+            title, value, category, type,
         };
 
         api.post('/transactions', data)
