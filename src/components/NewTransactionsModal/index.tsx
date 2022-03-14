@@ -5,7 +5,8 @@ import { Container, TransactionTypeContainer, RadioBox } from './styles';
 import closeImg from '../../assets/close.svg';
 import { FormEvent, useState, useContext } from 'react';
 import { api } from '../../services/api';
-import { TransactionsContext } from '../../TransactionsContext';
+import { useTransactions } from '../../hooks/useTransactions';
+
 
 interface NewTransactionsModalProps {
     isOpen: boolean;
@@ -13,7 +14,7 @@ interface NewTransactionsModalProps {
 }
 
 export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactionsModalProps) {
-    const {createTransaction} = useContext(TransactionsContext);
+    const {createTransaction} = useTransactions();
 
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState(0);
@@ -22,7 +23,7 @@ export function NewTransactionsModal({ isOpen, onRequestClose }: NewTransactions
 
     async function handleCreateNewTransactions(event: FormEvent) {
         event.preventDefault();
-        
+
         await createTransaction({
             title,
             amount,
